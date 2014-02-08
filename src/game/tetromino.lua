@@ -72,6 +72,26 @@ local Tetromino = Class{
     move = function (self, dx, dy)
         self.position = self.position + Vector(dx, dy)
     end,
+
+    getBoundingBox = function (self)
+        local rect = {
+            left = math.huge,
+            right = -math.huge,
+            top = math.huge,
+            bottom = -math.huge,
+        }
+
+        for _,b,r,c in self:each() do
+            local x, y = self.position.x + c * self.tilesize, self.position.y + r * self.tilesize
+
+            if x <= rect.left then rect.left = x end
+            if x >= rect.right then rect.right = x end
+            if y <= rect.top then rect.top = x end
+            if y >= rect.bottom then rect.bottom = x end
+        end
+
+        return rect
+    end,
 }
 
 local I = Class{
