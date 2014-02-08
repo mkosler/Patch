@@ -1,0 +1,6 @@
+[submodule "lib/hump"]
+	path = lib/hump
+	url = git://github.com/vrld/hump.git
+[submodule "lib/Quickie"]
+	path = lib/Quickie
+	url = git://github.com/vrld/Quickie.git
