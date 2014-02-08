@@ -10,7 +10,9 @@ local PlayMenu = {
     update = function (self, dt)
         GUI.group.push{ grow = "down" }
 
-        GUI.Button{ text = "Endless" }
+        if GUI.Button{ text = "Endless" } then
+            Gamestate.switch(Endless)
+        end
 
         GUI.Button{ text = "Tutorial" }
 
